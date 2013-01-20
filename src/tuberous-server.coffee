@@ -7,8 +7,6 @@ async = require 'async'
 db = null
 server = null
 
-
-
 close = (cb)->
     db.close true, (error, data)->
         db = undefined
@@ -25,7 +23,6 @@ configure = (config, cb=(->))->
     cb()
 
 setup = (callback)->
-    console.log "Setup DB"
     if not module.client?
         db.open (error, client)->
           if error
@@ -89,7 +86,7 @@ Model = potato.Model
         CONFIG:
             safe: true
             multi:false
-            upsert:true
+            upsert:true 
         MAX_PER_REQUEST: 10
         indexes: [] 
 
@@ -98,7 +95,7 @@ Model = potato.Model
 
         loadFixtures: (datas, cb)->
             fixtures = []
-            for data in datas
+            for data in datas 
                 do (data)=>
                     fixtures.push (cb)=>
                         console.log "*", data
@@ -123,11 +120,14 @@ Model = potato.Model
         findById: (itemId, callback)->
             if (typeof itemId == "string")
                 itemId = ObjectID itemId
-            @collection().findOne {_id: itemId}, (err, data)=>
+            filter = {_id: itemId}
+            @collection().findOne filter, (err, data)=>
                 if err?
                     callback err, data
-                else
+                else if data?
                     callback err, @fromData data
+                else
+                    callback err, null
 
         findOne: (filter, callback)->
             assert.ok typeof filter == "object"

@@ -16,18 +16,18 @@
   }
 , "dependencies": {
   "potato": "0.1.0"
+, "coffee-script": "1.4.0"
 , "mongodb": "1.0.2"
 , "async": "0.1.22"
 }
 , "devDependencies": {
-  "coffee-script": "1.4.0"
-, "mocha": "1.8.1"
+  "mocha": "1.8.1"
 }
 , "directories": {
 	"src": "./src"
 }
-, "main": "./lib/tuberous-server.js"
-, "browserify" : "./lib/tuberous-browser.js"
+, "main": "./src/tuberous-server.coffee"
+, "browserify" : "./src/tuberous-browser.coffee"
 , "scripts": {
   "test": "mocha --recursive --compilers coffee:coffee-script --timeout 10000"
 }

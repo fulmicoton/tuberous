@@ -1,15 +1,5 @@
 PIDFILE=./db/data/mongod.lock
 
-
-all: node_modules lib
-
-lib: lib/tuberous-server.js lib/tuberous-browser.js
-
-# compile sources
-lib/%.js: src/%.coffee
-	@mkdir -p lib
-	`npm bin`/coffee -o `dirname $@` -c $^ 
-
 # npm modules related commands
 node_modules:
 	@echo "Making sure deps are installed"
