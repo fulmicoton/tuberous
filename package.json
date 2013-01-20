@@ -1,0 +1,34 @@
+{
+  "name": "tuberous"
+, "description": "Sharing client-server with potato."
+, "version": "0.0.1"
+, "author": "Paul Masurel <paul.masurel@gmail.com>"
+, "private": false
+, "engines": ["node >= 0.4.0"]
+,  "licenses":  [{
+       "type":    "MIT",
+       "url":     "https://raw.github.com/poulejapon/tuberous/master/LICENSE"
+      }
+   ]
+, "repository": {
+    "type" : "git"
+  ,  "url" : "https://github.com/poulejapon/tuberous"
+  }
+, "dependencies": {
+  "potato": "0.1.0"
+, "mongodb": "1.0.2"
+, "async": "0.1.22"
+}
+, "devDependencies": {
+  "coffee-script": "1.4.0"
+, "mocha": "1.8.1"
+}
+, "directories": {
+	"src": "./src"
+}
+, "main": "./lib/tuberous-server.js"
+, "browserify" : "./lib/tuberous-browser.js"
+, "scripts": {
+  "test": "mocha --recursive --compilers coffee:coffee-script --timeout 10000"
+}
+}

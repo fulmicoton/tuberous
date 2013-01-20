@@ -1,0 +1,8 @@
+.readymade
+node_modules
+npm-debug.log
+.DS_Store
+lib/*
+db/*
+*.js
+*.map
